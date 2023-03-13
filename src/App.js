@@ -1,12 +1,15 @@
 import './App.css';
 import CustomMenu from "./layout/menu";
 import Home from "./views/home";
+import {ConfigProvider} from 'antd';
 
 function App() {
     return (
-        <CustomMenu>
-            <Home/>
-        </CustomMenu>
+        <ConfigProvider direction='rtl'>
+            <CustomMenu>
+                <Home/>
+            </CustomMenu>
+        </ConfigProvider>
     );
 }
 
