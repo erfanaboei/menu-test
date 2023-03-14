@@ -5,3 +5,56 @@
 .ant-menu-inline-collapsed-tooltip {
     display: none !important;
 }
+
+@layer base {
+    html, body {
+        font-family: IRANSans !important;
+    }
+}
+
+.ant-layout-sider {
+    background-color: white !important;
+    position: fixed !important;
+    min-width: 256px !important;
+    max-width: 256px !important;
+    width: 256px !important;
+}
+
+.ant-layout-sider-collapsed {
+    position: fixed !important;
+    min-width: 95px !important;
+    max-width: 95px !important;
+    width: 95px !important;
+}
+
+.ant-layout-sider img {
+    margin: 0 auto;
+    max-width: 80px;
+}
+
+.ant-layout-sider-collapsed img {
+    margin: 0 auto;
+    max-width: 50px;
+}
+
+@layer utilities {
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #f7f4ed;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(103, 103, 103, 0.61);
+        border-radius: 100vh;
+        border: 3px solid #f6f7ed;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(150, 150, 150, 0.72);
+    }
+}

@@ -5,7 +5,11 @@ import {ConfigProvider} from 'antd';
 
 function App() {
     return (
-        <ConfigProvider direction='rtl'>
+        <ConfigProvider direction='rtl' theme={{
+            token: {
+                fontFamily: 'IRANSans'
+            }
+        }}>
             <CustomMenu>
                 <Home/>
             </CustomMenu>

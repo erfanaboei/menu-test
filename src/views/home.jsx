@@ -1,21 +1,16 @@
 import React from "react";
 import {Breadcrumb} from "antd";
 
-const Home=()=>{
-    return(
+const {Item} = Breadcrumb;
+
+const Home = () => {
+    return (
         <>
-            <Breadcrumb
-                style={{
-                    margin: '16px 0',
-                }}
-            >
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            <Breadcrumb className='my-[16px]'>
+                <Item>داشبورد</Item>
             </Breadcrumb>
-            <div
-                className='p-[24px] min-h-[360px]'
-            >
-                Hello User
+            <div className='p-[24px]'>
+                <h1>خوش آمدید</h1>
             </div>
         </>
     );
