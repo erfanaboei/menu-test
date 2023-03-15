@@ -25,27 +25,36 @@ import {NavLink} from "react-router-dom";
 
 const {Header, Content, Sider} = Layout;
 
-function getItem(label, key, icon, children) {
+function getItem(label, key, icon, link, children) {
     return {
         key,
         icon,
         children,
-        label,
+        label: <NavLink to={link}>{label}</NavLink>,
     };
 }
 
 const items = [
-    getItem('داشبورد', 'dashboard', <PieChartOutlined className='text-[20px]'/>),
-    getItem('تولید', 'production', <FundProjectionScreenOutlined className='text-[20px]'/>),
-    getItem('انبار', 'warehouse', <MdOutlineWarehouse className='text-[20px]'/>, [
-        getItem('مواد', 'warehouse-material'),
-        getItem('اقلام مصرفی', 'warehouse-accessory'),
-        getItem('اطلاعات پایه', 'warehouse-baseInfo', null, []),
+    getItem('داشبورد', 'dashboard', <PieChartOutlined className='text-[20px]'/>, '/'),
+    getItem('تولید', 'production', <FundProjectionScreenOutlined className='text-[20px]'/>, '/production'),
+    getItem('انبار', 'warehouse', <MdOutlineWarehouse className='text-[20px]'/>, null, [
+        getItem('اطلاعات پایه', 'warehouse-baseInfo', null, null, []),
+        getItem('مواد', 'warehouse-material', null, null, [
+            getItem('ورود مواد به انبار', 'warehouse-material-entryToWarehouse',
+                <MdReceiptLong className='text-[20px]'/>, '/Material/MaterialEntryToWarehouse/list'),
+            getItem('ورود مواد به ایستگاه کاری', 'warehouse-material-entryToWorkStation',
+                <MdReceiptLong className='text-[20px]'/>, '/Material/MaterialEntryToWorkStation/list'),
+            getItem('برگشت مواد از انبار', 'warehouse-material-returnFromWarehouse',
+                <MdReceiptLong className='text-[20px]'/>, '/Material/ReturnMaterialFromWarehouse/list'),
+            getItem('برگشت مواد از ایستگاه کاری', 'warehouse-material-returnFromWorkStation',
+                <MdReceiptLong className='text-[20px]'/>, '/Material/ReturnMaterialFromWorkStation/list'),
+        ]),
+        getItem('اقلام مصرفی', 'warehouse-accessory', null, null, []),
     ]),
     getItem('سفارش', 'order', <MdReceiptLong className='text-[20px]'/>),
     getItem('دستگاه', 'machine', <BsDeviceSsd className='text-[20px]'/>),
-    getItem('اطلاعات پایه', 'baseInfo', <MdOutlineInfo className='text-[20px]'/>, [
-        getItem('طراحی', 'baseInfo-design', <MdOutlineDesignServices className='text-[20px]'/>, [
+    getItem('اطلاعات پایه', 'baseInfo', <MdOutlineInfo className='text-[20px]'/>, null, [
+        getItem('طراحی', 'baseInfo-design', <MdOutlineDesignServices className='text-[20px]'/>, null, [
             getItem('بارکد', 'baseInfo-design-barCode', <FaBarcode className='text-[20px]'/>),
             getItem('لیبل', 'baseInfo-design-label', <MdLabelOutline className='text-[20px]'/>)
         ]),
@@ -54,7 +63,7 @@ const items = [
         getItem('واحد', 'unit', <TbRulerMeasure className='text-[20px]'/>),
         getItem('شیفت', 'shift', <MdOutlineTimer className='text-[20px]'/>),
         getItem('زبان', 'language', <MdOutlineLanguage className='text-[20px]'/>),
-        getItem('ناحیه کاربری', 'userRange', <FaUsers className='text-[20px]'/>, [
+        getItem('ناحیه کاربری', 'userRange', <FaUsers className='text-[20px]'/>, null, [
             getItem('کاربران', 'useRange-users', <UserOutlined className='text-[20px]'/>),
             getItem('دپارتمان', 'useRange-departman', <AiOutlineApartment className='text-[20px]'/>),
             getItem('سطح دسترسی', 'useRange-permission', <SiOpenaccess className='text-[20px]'/>)
@@ -76,7 +85,7 @@ const CustomMenu = ({children}) => {
                 trigger={null}
                 collapsible
                 collapsed={collapsed}
-                className='overflow-y-scroll'>
+                className='overflow-y-auto'>
                 <img src={logo} alt=""/>
                 <Menu
                     className='h-[calc(100vh-74px)] border-0'
@@ -94,7 +103,7 @@ const CustomMenu = ({children}) => {
                     </Button>
                 </Header>
                 <Content
-                    className='bg-white my-[24px] mx-[16px] p-[24px] h-[calc(100vh-100px)]'>
+                    className='bg-white my-[24px] mx-[16px] p-[24px] min-h-[calc(100vh-100px)] rounded-lg'>
                     {children}
                 </Content>
             </Layout>

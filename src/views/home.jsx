@@ -1,5 +1,6 @@
 import React from "react";
 import {Breadcrumb} from "antd";
+import {NavLink} from "react-router-dom";
 
 const {Item} = Breadcrumb;
 
@@ -10,7 +11,7 @@ const Home = () => {
                 <Item>داشبورد</Item>
             </Breadcrumb>
             <div className='p-[24px]'>
-                <h1>خوش آمدید</h1>
+                <NavLink to={'/MaterialEntryToWorkStation'}>داشبورد</NavLink>
             </div>
         </>
     );
