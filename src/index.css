@@ -22,9 +22,12 @@
 
 .ant-layout-sider-collapsed {
     position: fixed !important;
-    min-width: 95px !important;
-    max-width: 95px !important;
-    width: 95px !important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+    width: 80px !important;
+}
+.ant-menu-submenu-open{
+
 }
 
 .ant-layout-sider img {

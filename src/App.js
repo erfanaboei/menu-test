@@ -10,7 +10,7 @@ function App() {
     return (
         <ConfigProvider direction='rtl' theme={{
             token: {
-                fontFamily: 'IRANSans'
+                fontFamily: 'IRANSans',
             }
         }}>
             <CustomMenu>

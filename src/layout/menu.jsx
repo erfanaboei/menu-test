@@ -85,17 +85,19 @@ const CustomMenu = ({children}) => {
                 trigger={null}
                 collapsible
                 collapsed={collapsed}
-                className='overflow-y-auto'>
+                className='overflow-y-auto'
+                // theme='dark'
+            >
                 <img src={logo} alt=""/>
                 <Menu
-                    className='h-[calc(100vh-74px)] border-0'
-                    theme="light"
+                    className='h-[calc(100vh-90px)] border-0 mt-3'
                     mode="inline"
+                    // theme='dark'
                     defaultSelectedKeys={['dashboard']}
                     items={items}
                 />
             </Sider>
-            <Layout className={collapsed ? "mr-[95px]" : "mr-[256px]"}>
+            <Layout className={collapsed ? "mr-[80px]" : "mr-[256px]"}>
                 <Header className='p-0 bg-white'>
                     <Button type='link' className='text-black' onClick={toggleCollapse}>
                         {collapsed ? <MenuUnfoldOutlined className='text-2xl'/> :
